@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { registerUser } from '../../../features/authSlice'; // Import the action creator
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const loading = useSelector((state) => state.userSlice.data);
 
   const [notification, setNotification] = useState(''); 
 
@@ -126,7 +129,7 @@ const RegisterForm = () => {
         {errors.password && <span className="text-red-500 text-sm">{errors.password}</span>}
       </div>
 
-      <button type="submit" className="w-full bg-green-900 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200">Register</button>
+      <button type="submit" className="w-full bg-green-900 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200"> {loading ? 'Loading...' : 'Register'}</button>
     </form>
   </div>
 </div>

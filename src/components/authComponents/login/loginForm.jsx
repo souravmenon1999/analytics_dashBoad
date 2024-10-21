@@ -13,6 +13,8 @@ const LoginForm = () => {
 
   const [notification, setNotification] = useState(''); 
 
+  const loading = useSelector((state) => state.userSlice.data);
+
   const { from, search } = location.state || { from: '/dashboard', search: '' };
   
   
@@ -114,7 +116,7 @@ const LoginForm = () => {
         {errors.password && <span className="text-red-500 text-sm">{errors.password}</span>}
       </div>
 
-      <button type="submit" className="w-full bg-green-900 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200 ">Login</button>
+      <button type="submit" className="w-full bg-green-900 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200 ">{loading ? 'Loading...' : 'Login'}</button>
     </form>
     <button onClick={handleNavigate} className="mt-4 w-full text-blue-600 hover:underline">Register New User</button>
   </div>
