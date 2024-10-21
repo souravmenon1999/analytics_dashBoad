@@ -22,11 +22,7 @@ export const fetchFilteredData = createAsyncThunk(
     window.history.pushState({}, '', `${currentUrl}?${params}`);
 
     // Fetch data using Axios
-<<<<<<< HEAD
-    const response = await axios.get('https://analyticsplatform-backend-at3ef41p6-souravmenon1999s-projects.vercel.app/api/data', {
-=======
-    const response = await axios.get( `${API_BASE_URL}/data`, {
->>>>>>> e8e6c5a (sample commit)
+    const response = await axios.get(`${API_BASE_URL}/data`, {
       params: {
         ageGroup,
         gender,
@@ -36,10 +32,10 @@ export const fetchFilteredData = createAsyncThunk(
       withCredentials: true,
     });
 
-    
     return response.data; // Return the data to be used in the reducer
   }
 );
+
 
 const initialState = {
   data: [],            // Stores the chart data

@@ -13,18 +13,12 @@ const initialState = {
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 
-// Async thunk for login
 export const loginUser = createAsyncThunk(
   'auth/login',
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      
       const response = await axios.post(
-<<<<<<< HEAD
-        'https://analyticsplatform-backend-at3ef41p6-souravmenon1999s-projects.vercel.app/api/auth/login',
-=======
-        `${API_BASE_URL}/auth/login`,
->>>>>>> e8e6c5a (sample commit)
+        `${API_BASE_URL}/auth/login`, // Use the dynamic API base URL
         { email, password },
         {
           headers: {
@@ -42,19 +36,14 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
-
 // Async thunk for registration
 export const registerUser = createAsyncThunk(
   'auth/register',
   async ({ firstname, lastname, email, password }, { rejectWithValue }) => {
-    console.log(firstname, lastname, email, password)
+    console.log(firstname, lastname, email, password);
     try {
       const response = await axios.post(
-<<<<<<< HEAD
-        'https://analyticsplatform-backend-at3ef41p6-souravmenon1999s-projects.vercel.app/api/auth/register',
-=======
-        `${API_BASE_URL}/auth/register`,
->>>>>>> e8e6c5a (sample commit)
+        `${API_BASE_URL}/auth/register`, // Using the dynamic API base URL
         { firstname, lastname, email, password },
         {
           headers: {
@@ -64,7 +53,7 @@ export const registerUser = createAsyncThunk(
         }
       );
 
-      return response.data; // Assuming your API response structure includes user data and a token
+      return response.data; // Assuming the API response includes user data and a token
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message || 'Failed to register'
