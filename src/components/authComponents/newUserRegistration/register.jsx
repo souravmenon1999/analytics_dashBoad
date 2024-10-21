@@ -8,7 +8,7 @@ const RegisterForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const loading = useSelector((state) => state.userSlice.data);
+  const loading = useSelector((state) => state.userSlice.loading);
 
   const [notification, setNotification] = useState(''); 
 

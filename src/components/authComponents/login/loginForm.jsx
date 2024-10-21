@@ -13,7 +13,7 @@ const LoginForm = () => {
 
   const [notification, setNotification] = useState(''); 
 
-  const loading = useSelector((state) => state.userSlice.data);
+  const loading = useSelector((state) => state.userSlice.loading);
 
   const { from, search } = location.state || { from: '/dashboard', search: '' };
   
