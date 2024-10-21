@@ -27,7 +27,7 @@ export const loginUser = createAsyncThunk(
           withCredentials: true, // This is equivalent to 'credentials: include' in fetch
         }
       );
-      console.log(response.data);
+      
       return response.data; // Assuming your API response structure includes user data and a token
     } catch (error) {
       return rejectWithValue(

@@ -11,6 +11,8 @@ const LoginForm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
+  const [notification, setNotification] = useState(''); 
+
   const { from, search } = location.state || { from: '/dashboard', search: '' };
   
   
@@ -69,6 +71,7 @@ const LoginForm = () => {
       })
       .catch((err) => {
         console.error('Registration failed:', err);
+        setNotification('Login failed. Please check your email and password.');
       });
     }
   };
@@ -78,37 +81,45 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-form-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <span className="error">{errors.email}</span>}
-        </div>
+    
+    <div className="flex items-center justify-center min-h-screen ">
+  <div className=" rounded-lg shadow-lg p-8 w-full max-w-md bg-gray-800">
+    <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
 
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          {errors.password && <span className="error">{errors.password}</span>}
-        </div>
+    {notification && <div className="mb-4 text-red-500 text-center">{notification}</div>} {/* Notification */}
+    <form onSubmit={handleSubmit}>
+      <div className="form-group mb-4">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
+      </div>
 
-        <button type="submit">Login</button>
-      </form>
-      <button onClick={handleNavigate}>Register New User</button>
-    </div>
+      <div className="form-group mb-6">
+        <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          value={formData.password}
+          onChange={handleChange}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        {errors.password && <span className="text-red-500 text-sm">{errors.password}</span>}
+      </div>
+
+      <button type="submit" className="w-full bg-green-900 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200 ">Login</button>
+    </form>
+    <button onClick={handleNavigate} className="mt-4 w-full text-blue-600 hover:underline">Register New User</button>
+  </div>
+</div>
+
   );
 };
 

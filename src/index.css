@@ -20,3 +20,26 @@
 .container{
   max-width: 2500px;
 }
+
+/* Custom styles for react-datepicker */
+.react-datepicker__header {
+  background-color: #f3f4f6; /* Background color */
+  color: white; /* Text color */
+}
+
+.react-datepicker__month-dropdown,
+.react-datepicker__year-dropdown {
+  background-color: #ffffff; /* Dropdown background color */
+  color: #1f2937; /* Dropdown text color */
+}
+
+.react-datepicker__month-option,
+.react-datepicker__year-option {
+  color: #1f2937; /* Option text color */
+}
+
+.react-datepicker__month-option:hover,
+.react-datepicker__year-option:hover {
+  background-color: #e5e7eb; /* Background color on hover */
+  color: #111827; /* Text color on hover */
+}
