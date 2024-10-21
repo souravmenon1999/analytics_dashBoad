@@ -22,7 +22,7 @@ export const fetchFilteredData = createAsyncThunk(
     window.history.pushState({}, '', `${currentUrl}?${params}`);
 
     // Fetch data using Axios
-    const response = await axios.get(`${API_BASE_URL}/data`, {
+    const response = await axios.get(`${API_BASE_URL}/api/data`, {
       params: {
         ageGroup,
         gender,
