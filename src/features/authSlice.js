@@ -18,7 +18,7 @@ export const loginUser = createAsyncThunk(
   async ({ email, password }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/auth/login`, // Use the dynamic API base URL
+        `${API_BASE_URL}/api/auth/login`, // Use the dynamic API base URL
         { email, password },
         {
           headers: {
@@ -43,7 +43,7 @@ export const registerUser = createAsyncThunk(
     console.log(firstname, lastname, email, password);
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/auth/register`, // Using the dynamic API base URL
+        `${API_BASE_URL}/api/auth/register`, // Using the dynamic API base URL
         { firstname, lastname, email, password },
         {
           headers: {
@@ -68,7 +68,7 @@ export const verifyOtp = createAsyncThunk(
   async ({ otp }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/auth/otpverify`,
+        `${API_BASE_URL}/api/auth/otpverify`,
         { otp },
         { withCredentials: true }
       );
